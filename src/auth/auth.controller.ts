@@ -44,7 +44,6 @@ export class AuthController {
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
   refreshToken(@getCurrentUser() user: RtTokens) {
-    console.log(user);
-    return this.authService.refreshToken(user.email, user.refreshToken);
+    return this.authService.refreshToken(user.sub, user.refreshToken);
   }
 }
